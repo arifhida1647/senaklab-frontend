@@ -34,4 +34,15 @@ class confirmation extends BaseController
         // Tampilkan view dengan data yang telah diambil
         return view('confirmation_view', $data);
     }
+    public function cancel_order()
+    {
+        // Dapatkan order_id dari POST request
+        $order_id = $this->request->getPost('order_id');
+
+        // Hapus order berdasarkan order_id
+        $this->orderModel->where('order_id', $order_id)->delete();
+
+        // Redirect ke halaman sebelumnya atau halaman lain
+        return redirect()->to(base_url('/history-orders'));
+    }
 }

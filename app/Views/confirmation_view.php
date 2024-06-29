@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="zxx">
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -7,9 +8,10 @@
     <title>pillloMart</title>
     <link rel="icon" href="img/favicon.png">
 </head>
+
 <body>
     <?php include (APPPATH . 'Views/includes/header.php'); ?>
-    
+
     <!-- breadcrumb part start-->
     <section class="breadcrumb_part">
         <div class="container">
@@ -111,6 +113,10 @@
                                     <p>GoPay</p><span>: 0826152527 A.n Laundry</span>
                                 </li>
                             </ul>
+                            <form action="<?= site_url('confirmation/cancel_order') ?>" method="post">
+                                <input type="hidden" name="order_id" value="<?php echo $dataOrders[0]['order_id']; ?>">
+                                <button type="submit" class="btn btn-danger">Cancel</button>
+                            </form>
                         </div>
                     </div>
                 <?php endif; ?>

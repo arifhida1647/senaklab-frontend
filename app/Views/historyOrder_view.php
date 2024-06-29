@@ -1,13 +1,29 @@
 <!doctype html>
-<html lang="zxx">
+<html lang="eng">
 
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pillloMart</title>
+    <style>
+        /* Ensure the modal is centered */
+        .modal-dialog-centered {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .modal-content {
+            width: 100%;
+            max-width: 500px;
+        }
+    </style>
 </head>
 
 <body>
     <?php include (APPPATH . 'Views/includes/header.php'); ?>
-
 
     <!-- breadcrumb part start-->
     <section class="breadcrumb_part">
@@ -24,10 +40,10 @@
     <!-- breadcrumb part end-->
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Form Item</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Item</h5>
                     <button type="button" class="btn-close tombol-tutup" data-bs-dismiss="modal"
                         aria-label="Close"></button>
                 </div>
@@ -47,12 +63,7 @@
                     <div class="mb-3 row">
                         <label for="inputStatus" class="col-sm-2 col-form-label">Status</label>
                         <div class="col-sm-10">
-                            <select id="inputStatus" class="form-select" name="status" disabled>
-                                <option value="Pending">Pending</option>
-                                <option value="In Progress">In Progress</option>
-                                <option value="Completed">Completed</option>
-                                <option value="Cancelled">Cancelled</option>
-                            </select>
+                            <input type="text" class="form-control" id="inputStatus" name="status" disabled>
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -63,12 +74,11 @@
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label for="inputPaymentProofFile" class="col-sm-2 col-form-label">Payment
-                            Proof</label>
+                        <label for="inputPaymentProofFile" class="col-sm-2 col-form-label">Payment Proof</label>
                         <div class="col-sm-10">
                             <input type="file" class="form-control-file" id="inputPaymentProofFile"
                                 name="payment_proof_path_file">
-                            <button type="button" class="btn btn-secondary" id="btnUploadImgBB">Upload
+                            <button type="button" class="btn btn-secondary my-3" id="btnUploadImgBB">Upload
                                 Gambar</button>
                             <input type="hidden" class="form-control" id="inputPaymentProof" name="payment_proof_path">
                             <div id="uploadedImagePreview"></div>
@@ -76,8 +86,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary tombol-tutup" data-bs-dismiss="modal">Tutup
-                    </button>
+                    <button type="button" class="btn btn-secondary tombol-tutup" data-bs-dismiss="modal">Tutup</button>
                     <button type="button" class="btn btn-primary" id="tombolSimpan">Simpan</button>
                 </div>
             </div>
@@ -113,18 +122,16 @@
                                     </td>
                                     <td>
                                         <?php if ($v['status'] == 'In Progress') { ?>
-                                            <button type="button" class="btn btn-warning  text-light btn-sm">In
-                                                Progress</button>
+                                            <button type="button" class="btn btn-warning text-light btn-sm">In Progress</button>
                                         <?php } ?>
                                         <?php if ($v['status'] == 'Pending') { ?>
-                                            <button type="button" class="btn btn-danger  text-light btn-sm">Pending</button>
+                                            <button type="button" class="btn btn-danger text-light btn-sm">Pending</button>
                                         <?php } ?>
                                         <?php if ($v['status'] == 'Completed') { ?>
-                                            <button type="button" class="btn btn-success  text-light btn-sm">Completed</button>
+                                            <button type="button" class="btn btn-success text-light btn-sm">Completed</button>
                                         <?php } ?>
                                         <?php if ($v['status'] == 'Cancelled') { ?>
-                                            <button type="button"
-                                                class="btn btn-secondary  text-light btn-sm">Cancelled</button>
+                                            <button type="button" class="btn btn-secondary text-light btn-sm">Cancelled</button>
                                         <?php } ?>
                                     </td>
                                     <td>
@@ -139,8 +146,7 @@
                                         <?php else: ?>
                                             <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
                                                 data-bs-target="#exampleModal"
-                                                onclick="edit(<?php echo $v['order_id'] ?>)">Upload Bukti
-                                                Pembayaran</button>
+                                                onclick="edit(<?php echo $v['order_id'] ?>)">Upload Bukti Pembayaran</button>
                                         <?php endif; ?>
                                     </td>
                                 </tr>

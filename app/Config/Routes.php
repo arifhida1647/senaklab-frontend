@@ -31,7 +31,7 @@ $routes->get('/logout', 'logout::logout');
 
 
 $routes->get('/confirmation/(:num)', 'confirmation::index/$1', ['filter' => 'khususMember']);
-
+$routes->post('confirmation/cancel_order', 'Confirmation::cancel_order');
 
 
 $routes->get('/contact', 'contact::index');
