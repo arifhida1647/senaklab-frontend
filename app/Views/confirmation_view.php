@@ -47,7 +47,7 @@
                                 <p>Status</p><span>: <?php echo $dataOrders[0]['status']; ?></span>
                             </li>
                             <li>
-                                <p>mayment methord</p><span>: Check payments</span>
+                                <p>Alamat Tujuan</p><span>: <?php echo $dataOrders[0]['order_address']; ?></span>
                             </li>
                         </ul>
                     </div>

@@ -28,6 +28,7 @@ class ProductDetail extends BaseController
         $data = [
             'user_id' => $this->request->getPost('user_id'),
             'item_id' => $this->request->getPost('item_id'),
+            'order_address' => $this->request->getPost('order_address'),
             'total_amount' => $this->request->getPost('total_amount')
         ];
 

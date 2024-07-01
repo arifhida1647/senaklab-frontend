@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>pillloMart</title>
     <link rel="icon" href="img/favicon.png">
-    
+
 </head>
 
 <body>
@@ -68,6 +68,11 @@
                                         <!-- Sesuaikan dengan user_id yang benar -->
                                         <input type="hidden" name="item_id" value="<?php echo $dataItem['item_id']; ?>">
                                         <input type="hidden" name="total_amount" value="<?php echo $dataItem['price']; ?>">
+                                        <div class="form-group">
+                                            <label for="order_address">Alamat Tujuan:</label>
+                                            <input type="text" name="order_address" id="order_address" class="form-control"
+                                                required>
+                                        </div>
                                         <button type="submit" class="btn_3">Order</button>
                                     </form>
                                 </div>
